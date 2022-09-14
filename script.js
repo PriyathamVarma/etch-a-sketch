@@ -47,6 +47,31 @@ step 4: ask user for a new grid
 // add the id for container
 // in css, set width and height for container to 1000px
 
-let container = document.createElement("div");
-document.body.appendChild(container);
-container.setAttribute("id", "container");
+let createContainer = document.createElement("div");
+document.body.appendChild(createContainer);
+createContainer.setAttribute("id", "containerId");
+
+/* step 2: create a 16 by 16 grid of square divs
+    - create a parent div with the Id "container"
+    - variables: 
+        - sideLength = initially at 16
+            - side length is also the less than in the for loop for row and column
+    - create a row of 16 squares, 16 times:
+        - use two loops: 
+            - loop 1: 16 rows
+            - loop 2: 16 columns
+                - put constant: etch-square here */
+
+
+
+// create a parent div with the Id "container" and get its width from the CSS stylesheet
+let container = document.getElementById("containerId");
+let containerStyle = window.getComputedStyle(container);
+let containerSideLength = containerStyle.width;
+console.log(containerSideLength);
+
+
+// create a parent div with the Id "container"
+let createEtchSquare = document.createElement("div");
+let addClassToEtchSquare = createEtchSquare.setAttribute("class", "etchSquareClass");
+let appendEtchSquare = container.appendChild(createEtchSquare);
