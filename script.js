@@ -65,13 +65,37 @@ createContainer.setAttribute("id", "containerId");
 
 
 // create a parent div with the Id "container" and get its width from the CSS stylesheet
+
 let container = document.getElementById("containerId");
 let containerStyle = window.getComputedStyle(container);
 let containerSideLength = containerStyle.width;
 console.log(containerSideLength);
 
+// variable to alter the grid size - this will factor into the for loop - NUMBER OF BOXES IN GRID WILL CHANGE WHEN
+// WE GET A BUTTON CLICK AND USER INPUTS NUMBER
+let numberOfBoxesInGrid = 16;
+// turned container side length into an int because I didn't want "px" in my calculations
+let containerSideLengthInt = containerSideLength.slice(0, 3);
+let boxSideLength = containerSideLengthInt / numberOfBoxesInGrid;
+console.log(numberOfBoxesInGrid);
+console.log(containerSideLength);
+console.log(boxSideLength);
 
 // create a parent div with the Id "container"
-let createEtchSquare = document.createElement("div");
-let addClassToEtchSquare = createEtchSquare.setAttribute("class", "etchSquareClass");
-let appendEtchSquare = container.appendChild(createEtchSquare);
+
+// add a row of etch squares
+for (let i = 0; i < numberOfBoxesInGrid; i++) {
+    let createEtchSquare = document.createElement("div");
+    let addClassToEtchSquare = createEtchSquare.setAttribute("class", "etchSquareClass");
+    let appendEtchSquare = container.appendChild(createEtchSquare);
+}
+
+
+//
+
+// for (let i = 0; i < )
+
+
+
+
+// add etchSquares to cover all the container
