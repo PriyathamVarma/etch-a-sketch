@@ -1,6 +1,7 @@
 let clickToColor = false;
 let board = document.querySelector(".board")
 let boxes = 16;
+let drawingColor = "white"
 
 // setting the initial board and 
 function populateBoard(BoxesInGrid) {
@@ -37,7 +38,7 @@ function stopColoring() {
 
 function colorSquare() {    
     if (clickToColor == true) {
-       this.style.backgroundColor = 'white';
+       this.style.backgroundColor = drawingColor;
     }
 }
 
@@ -65,6 +66,21 @@ function resetGrid() {
    changeBoard(boxes);
 }
 
+let pinkButton = document.querySelector(".colorInPink")
+pinkButton.addEventListener("click", colorInPink);
+
+function colorInPink() {
+    console.log(clickToColor, "test");
+    drawingColor = 'rgb(255 0 122)';
+}
+
+let whiteButton = document.querySelector(".colorInWhite")
+whiteButton.addEventListener("click", colorInWhite);
+
+function colorInWhite() {
+    console.log(clickToColor, "test");
+    drawingColor = 'white';
+}
 
 
 populateBoard(boxes);
