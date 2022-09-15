@@ -3,6 +3,18 @@ body {
     background-color: #4e359a;
 }
 
+p {
+    text-align: center;
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
 #unicorn {
     color: rgb(255 0 122);
 }
@@ -10,6 +22,8 @@ body {
 h1 {
     text-align: center;
     color: white;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .buttonDiv {
