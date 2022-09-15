@@ -1,3 +1,7 @@
+h1 {
+    text-align: center;
+}
+
 #containerId {
     width: 500px;
     height: 500px;
@@ -6,10 +10,23 @@
     display: flex;
 }
 
+#containerHoldingDivId {
+    display: flex;
+    justify-content: center;
+}
+
 .etchSquareClass {
    background-color: yellow; 
    width: 30px;
    height: 30px;
    border: 1px solid black;
+}
 
+#buttonDiv {
+    display: flex;
+    justify-content: center;
+}
+
+#gridDimensionButton {
+    margin-bottom: 20px;
 }

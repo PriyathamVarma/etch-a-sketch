@@ -47,9 +47,17 @@ step 4: ask user for a new grid
 // add the id for container
 // in css, set width and height for container to 1000px
 
-let createContainer = document.createElement("div");
-document.body.appendChild(createContainer);
-createContainer.setAttribute("id", "containerId");
+function createContainer() {
+    // container holder so I can center the container on DOM
+    let containerHoldingDiv = document.createElement("div");
+    document.body.appendChild(containerHoldingDiv);
+    containerHoldingDiv.setAttribute("id", "containerHoldingDivId");
+
+    // creating the container itself
+    let createdContainer = document.createElement("div");
+    containerHoldingDiv.appendChild(createdContainer);
+    createdContainer.setAttribute("id", "containerId");
+}
 
 /* step 2: create a 16 by 16 grid of square divs
     - create a parent div with the Id "container"
@@ -65,37 +73,66 @@ createContainer.setAttribute("id", "containerId");
 
 
 // create a parent div with the Id "container" and get its width from the CSS stylesheet
-
-let container = document.getElementById("containerId");
-let containerStyle = window.getComputedStyle(container);
-let containerSideLength = containerStyle.width;
-console.log(containerSideLength);
+let containerSideLength;
+let container;
+function setContainerSideLength() {
+    container = document.getElementById("containerId");
+    let containerStyle = window.getComputedStyle(container);
+    containerSideLength = containerStyle.width;
+    console.log(containerSideLength, "container side length");
+}
 
 // variable to alter the grid size - this will factor into the for loop - NUMBER OF BOXES IN GRID WILL CHANGE WHEN
 // WE GET A BUTTON CLICK AND USER INPUTS NUMBER
 let numberOfBoxesInGrid = 16;
 // turned container side length into an int because I didn't want "px" in my calculations
-let containerSideLengthInt = containerSideLength.slice(0, 3);
-let boxSideLength = containerSideLengthInt / numberOfBoxesInGrid;
-console.log(numberOfBoxesInGrid);
-console.log(containerSideLength);
-console.log(boxSideLength);
+function setBoxSideLength() {
+    let containerSideLengthInt = containerSideLength.slice(0, 3);
+    let boxSideLength = containerSideLengthInt / numberOfBoxesInGrid;
+    console.log(numberOfBoxesInGrid, "number of boxes in grid, function setBoxSideLength");
+    console.log(containerSideLength, "container side length, function setBoxSideLength");
+    console.log(boxSideLength, "box side length, function setBoxSideLength");
+}
+
 
 // create a parent div with the Id "container"
 
 // add a row of etch squares
-for (let i = 0; i < numberOfBoxesInGrid; i++) {
-    let createEtchSquare = document.createElement("div");
-    let addClassToEtchSquare = createEtchSquare.setAttribute("class", "etchSquareClass");
-    let appendEtchSquare = container.appendChild(createEtchSquare);
+function addGridBoxesToContainer() {
+    for (let i = 0; i < numberOfBoxesInGrid; i++) {
+        let createEtchSquare = document.createElement("div");
+        let addClassToEtchSquare = createEtchSquare.setAttribute("class", "etchSquareClass");
+        let appendEtchSquare = container.appendChild(createEtchSquare);
+    }
 }
 
 
-//
 
+// use button to get alert for number of boxes in grid
+let gridDimensionButtonId = document.getElementById("gridDimensionButton")
+gridDimensionButtonId.addEventListener('click', askForGrid);
+
+
+
+// come back to this
+function askForGrid() {
+    let numberOfBoxesInGrid = prompt("What do you want the box's length to be?")
+    if (numberOfBoxesInGrid < 0 || numberOfBoxesInGrid > 100) {
+        console.log("please enter an integer between 1 and 100")
+    } else {
+
+    }
+}
 // for (let i = 0; i < )
 
 
 
 
 // add etchSquares to cover all the container
+
+
+// executing functions above
+createContainer();
+setContainerSideLength();
+setBoxSideLength();
+addGridBoxesToContainer();
