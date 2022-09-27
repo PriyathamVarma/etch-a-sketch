@@ -9,21 +9,21 @@
     <script>
         // This is the code for saving the image using html2canvas
         $(function() { 
-    $("#btnSave").click(function() { 
-        html2canvas($("#board"), {
-            onrendered: function(canvas) {
-                theCanvas = canvas;
-                document.body.appendChild(canvas);
+            $("#btnSave").click(function() { 
+                html2canvas($("#board"), {
+                    onrendered: function(canvas) {
+                        theCanvas = canvas;
+                        document.body.appendChild(canvas);
 
-                // Convert and download as image 
-                Canvas2Image.saveAsPNG(canvas); 
-                $("#img-out").append(canvas);
-                // Clean up 
-                //document.body.removeChild(canvas);
-            }
-        });
-    });
-}); 
+                        // Convert and download as image 
+                        Canvas2Image.saveAsPNG(canvas); 
+                        $("#img-out").append(canvas);
+                        // Clean up 
+                        //document.body.removeChild(canvas);
+                    }
+                });
+            });
+        }); 
     </script>
      
     <link rel="stylesheet" href="styles.css">
@@ -43,6 +43,7 @@
         <button id="btnSave">Save</button>
     </div>
     <div class="board" id="board"></div>
+    <!-- Displaying Images -->
     <div id="img-out"></div>
     <p>Design inspired by <a href="https://uniswap.org/">Uniswap</a></p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
